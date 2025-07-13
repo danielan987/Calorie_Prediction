@@ -5,8 +5,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import r2_score, mean_squared_error, mean_squared_log_error
 
-# Import train data 
-data = pd.read_csv('train.csv.gz', compression='gzip')
+# Import train.csv.gz data with your folder path  
+data = pd.read_csv('', compression='gzip')
 
 # Transform and split data 
 data['Sex'] = data['Sex'].map({'female': 1, 'male': 0})
@@ -31,8 +31,8 @@ msle = mean_squared_log_error(y_test, y_pred)
 rmsle = np.sqrt(msle)
 print("RMS:E:", rmsle)
 
-# Import test data  
-test_data = pd.read_csv('test.csv.gz', compression='gzip')
+# Import test.csv.gz data with your folder path 
+test_data = pd.read_csv('', compression='gzip')
 
 # Transform data 
 test_data['Sex'] = test_data['Sex'].map({'female': 1, 'male': 0})
@@ -47,5 +47,5 @@ output = pd.DataFrame({
     'Calories': test_predictions
 })
 
-# Export prediction output
-output.to_csv('test_predictions.csv.gz', index=False, compression='gzip')
+# Export prediction output with your folder path
+output.to_csv('', index=False, compression='gzip')
